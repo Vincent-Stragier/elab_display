@@ -43,4 +43,14 @@ Ce projet est basé sur une Raspberry Pi 2 et un module T.V53.03 permettant d'ut
   - toujours par le biais de `ssh`, lancer `raspi-config`
     - changer le mot de passe pour sécurisé votre carte un minimum
     - changer le nom de domaine `hostname` de la carte Raspberry, qui est `raspberrypi` par default. Par la suite, ce mot de passe pourra être utilisé pour se connecter à la carte sans devoir chercher l'adresse IP
+  - cloner le `elabdisp`
+    - créer le dossier où sera cloné le projet`sudo mkdir -p /etc/elabdisp/`
+    - se déplacer dans le dossier `cd /etc/elabdisp/`
+    - cloner le projet ` sudo git clone https://github.com/2010019970909/elab_display.git`
+  - installer les modules nécessaires
+    - `python3 -m pip install demoji emoji facebook_scraper pillow`
+    - `sudo apt install python3-pil python3-pil.imagetk -y`
+  - lister les écrans connectés et démarrer l'application sur l'écran
+    - `ps aux | grep Xorg`
+    - `DISPLAY=:0.0 python3` 
 
