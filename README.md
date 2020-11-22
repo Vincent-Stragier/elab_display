@@ -133,4 +133,4 @@ Ce projet est basé sur une Raspberry Pi 2 et un module T.V53.03 permettant d'ut
 
   - vérifiez que la commande à bien été ajoutée avec `crontab -l`
 
-  - au prochain démarrage, vous pourrez utiliser la commande `journalctl -u cron.service` pour lister les évènements du service ´cron´ et voir si votre commande s'est bien exécutée (évidement, la GUI devrait se lancer en moins de 5 minutes)
+  - au prochain démarrage, vous pourrez utiliser la commande `journalctl -u cron.service` pour lister les évènements du service `cron` et voir si votre commande s'est bien exécutée (évidement, la GUI devrait se lancer en moins de 5 minutes)
