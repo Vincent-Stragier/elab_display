@@ -55,3 +55,5 @@ Ce projet est basé sur une Raspberry Pi 2 et un module T.V53.03 permettant d'ut
     - `DISPLAY=:0.0 python3` 
 
 https://www.raspberrypi.org/forums/viewtopic.php?t=231557 remove piwiz
+
+DISPLAY=:0 py /etc/elabdisp/elab_display/GUI_schedule_scraping.py

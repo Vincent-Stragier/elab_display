@@ -177,7 +177,6 @@ def update_post(
 
                 post_queue.put(
                     post_text + "\n\n" + phone + "\n\n Nombre de likes: " + fs.getLikeCount(page_name))
-                print(post_text)
 
         except Exception as error:
             print(error)
