@@ -37,6 +37,7 @@ class Fullscreen_Window:
     def __init__(self, post_text_Queue):
         self.tk = Tk()
         self.tk.title("electroLAB - Horaire")
+        self.tk.config(cursor="none")
         try:
             self.tk.wm_iconbitmap(ICONE_PATH)
         except Exception:
