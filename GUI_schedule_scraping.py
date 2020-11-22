@@ -192,7 +192,7 @@ if __name__ == "__main__":
     process_handler = mp.Process(target=update_post, args=(post_Queue,))
     process_handler.start()
 
-    # Pass the pipe as argument for the GUI
+    # Pass the Queue as argument for the GUI
     main(post_Queue)
 
     # Kill the process
