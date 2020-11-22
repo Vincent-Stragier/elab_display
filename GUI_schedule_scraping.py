@@ -33,6 +33,8 @@ ELAB_GREEN = "#%02x%02x%02x" % (44, 167, 106)
 
 POST_KEY = b'\xf0\x9f\x95\x93'.decode('utf8')
 
+REMOVE_EMOJI = True
+
 class Fullscreen_Window:
     def __init__(self, post_text_Queue):
         self.tk = Tk()
@@ -142,7 +144,10 @@ class Fullscreen_Window:
         self.previous_date = utc_datetime
         self.time.set(self.previous_date.strftime("%d/%m/%Y %H:%M:%S"))
         while self.post_text.full():
-            self.post.set(self.post_text.get())
+            if REMOVE_EMOJI:
+                self.post.set(fs.remove_emoji(self.post_text.get()))
+            else:
+                self.post.set(self.post_text.get())
 
         self.tk.update()
         self.tk.after(10, self.update)
