@@ -18,7 +18,7 @@ from datetime import datetime
 from time import sleep
 
 PAGE_NAME = "electroLAB.FPMs"
-ENABLE_EMOJI = True
+ENABLE_EMOJI = False
 PHONE_NBR = fs.add_emoji(":telephone_receiver:")  \
                + " : NUMÉRO DE TÉLÉPHONE DE VINCENT" \
                if ENABLE_EMOJI                       \
@@ -32,8 +32,6 @@ LOGO_PATH = os.path.join(IMAGES_PATH, 'electroLAB-LOGO.png')
 ELAB_GREEN = "#%02x%02x%02x" % (44, 167, 106)
 
 POST_KEY = b'\xf0\x9f\x95\x93'.decode('utf8')
-
-REMOVE_EMOJI = False
 
 class Fullscreen_Window:
     def __init__(self, post_text_Queue):
@@ -144,10 +142,7 @@ class Fullscreen_Window:
         self.previous_date = utc_datetime
         self.time.set(self.previous_date.strftime("%d/%m/%Y %H:%M:%S"))
         while self.post_text.full():
-            if REMOVE_EMOJI:
-                self.post.set(fs.remove_emoji(self.post_text.get()))
-            else:
-                self.post.set(self.post_text.get())
+            self.post.set(self.post_text.get())
 
         self.tk.update()
         self.tk.after(10, self.update)
