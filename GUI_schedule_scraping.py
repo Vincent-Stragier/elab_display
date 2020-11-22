@@ -33,7 +33,7 @@ ELAB_GREEN = "#%02x%02x%02x" % (44, 167, 106)
 
 POST_KEY = b'\xf0\x9f\x95\x93'.decode('utf8')
 
-REMOVE_EMOJI = True
+REMOVE_EMOJI = False
 
 class Fullscreen_Window:
     def __init__(self, post_text_Queue):
