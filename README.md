@@ -54,3 +54,4 @@ Ce projet est basé sur une Raspberry Pi 2 et un module T.V53.03 permettant d'ut
     - `ps aux | grep Xorg`
     - `DISPLAY=:0.0 python3` 
 
+https://www.raspberrypi.org/forums/viewtopic.php?t=231557 remove piwiz
