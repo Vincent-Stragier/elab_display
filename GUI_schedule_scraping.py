@@ -162,7 +162,8 @@ def update_post(
         phone=PHONE_NBR):
     post_queue.put("")
     post_text = ""
-
+    like_count = 0
+    
     while True:
         try:
             temp = fs.getPost(
@@ -170,14 +171,15 @@ def update_post(
                 key=key,
                 enable_emoji=enable_emoji)
 
-            if temp != post_text:
+            if temp != post_text or like_count != fs.getLikeCount(page_name):
+                like_count = fs.getLikeCount(page_name)
                 post_text = fs.getPost(
                     page_name=page_name,
                     key=key,
                     enable_emoji=enable_emoji)
 
                 post_queue.put(
-                    post_text + "\n\n" + phone + "\n\n Nombre de likes: " + fs.getLikeCount(page_name))
+                    post_text + "\n\n" + phone + "\n\n Nombre de likes: " + like_count)
 
         except Exception as error:
             print(error)
