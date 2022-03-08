@@ -10,8 +10,6 @@ import requests
 
 # https://pypi.org/project/demoji/
 import demoji
-# from contextlib import redirect_stdout
-# import io
 
 import emoji
 
@@ -19,30 +17,34 @@ import emoji
 from facebook_scraper import get_posts  # , set_user_agent
 
 
-# Get the number of likes on the Facebook page (using the name of the page)
-def getLikeCount(page_name):
+def get_likes_count(page_name: str) -> int:
+    """Get the number of likes on the Facebook page"""
     URL = f"https://fr-fr.facebook.com/pg/{page_name}"
 
     response = requests.get(URL)
-    description = re.findall("<meta name=\"description\".+/>", response.text)
-    count = re.findall("([0-9]+)[\s]+J&#x2019;aime", description[0])[0]
-    return count if count else -1
+    regex = ('<meta name="description"[^/>0-9]+'
+             '([0-9]+)[\s]+J&#x2019;aime[^/>]+')
+    count = re.findall(regex, response.text)[0]
+    return int(count) if str(int(count)) == count else -1
 
-# Remove the emoji from the 'data' string
-def remove_emoji(data):
+
+def remove_emoji(data: str) -> str:
+    """Remove the emoji from the 'data' string."""
     return demoji.replace(data)
 
 
-# Return the UTF-8 encoded emoji value
-def add_emoji(emoji_name):
+def add_emoji(emoji_name: str) -> str:
+    """Return the UTF-8 encoded emoji value."""
     return emoji.emojize(emoji_name)
 
 
-# Get the first post on the 'page_name' Facebook Page containing the 'key'
-def getPost(page_name, key, enable_emoji=True):
-    # set_user_agent("Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)")
+def get_matching_post(
+        page_name: str, key: str, enable_emoji: bool = True) -> str:
+    """Get the first post on the 'page_name' FB page containing the 'key'."""
+    # set_user_agent()
     for post in get_posts(page_name):
-        if key in post['text'][:]:  # Looking for the clock emoji
+        # Looking for the 'key' emoji
+        if key in post['text'][:]:
             if enable_emoji:
                 return post['text'][:]
             else:
@@ -50,12 +52,13 @@ def getPost(page_name, key, enable_emoji=True):
     return None
 
 
-def main():
+def main() -> None:
     # PAGE_NAME = "electroLAB.FPMs"
     # PAGE_NAME = "codobot.be"
     # PAGE_NAME = "tamu"
-    # PAGE_NAME = "UniversiteMons"
-    # print(getLikeCount(page_name=PAGE_NAME))
+    PAGE_NAME = "UniversiteMons"
+    print(f"Test: {PAGE_NAME = }")
+    print(get_likes_count(page_name=PAGE_NAME))
     print("This Python script is a module which can be used"
           " to scrap information from a Facebook page.")
 

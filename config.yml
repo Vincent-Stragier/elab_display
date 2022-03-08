@@ -1,0 +1,28 @@
+app_title: 'electroLAB - Horaire'
+
+enable_emoji: True
+
+images_folder: 'images'
+icon_path: 'electroLAB.ico'
+logo_path: 'electroLAB-LOGO.png'
+
+facebook_page_name: 'electroLAB.FPMs'
+
+phone:
+  emoji: ':telephone_receiver: : '
+  text: 'Tél. : '
+  number: 'Un numéro de téléphone'
+
+# An RGB color
+header_and_footer_color: [44, 167, 106]
+
+font:
+  family: 'Helvetica'
+  size: 40
+
+cursor: 'none'
+
+bytes_post_key: '\xf0\x9f\x95\x93'
+
+# Delay in seconds
+update_delay: 5
