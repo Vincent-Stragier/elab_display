@@ -2,4 +2,4 @@ demoji==1.1.0
 emoji==1.6.3
 facebook_scraper==0.2.54
 Pillow==10.0.1
-requests==2.31.0
+requests==2.32.0
